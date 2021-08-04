@@ -46,7 +46,7 @@ module.exports = {
       'error',
       {
         endOfLine: 'lf',
-        singleQuote: 'true',
+        singleQuote: true,
         trailingComma: 'all',
       },
     ],
