@@ -55,6 +55,7 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
+    'no-plusplus': 'off',
   },
   overrides: [
     {
