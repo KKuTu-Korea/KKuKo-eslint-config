@@ -22,6 +22,11 @@ module.exports = {
     '@typescript-eslint/no-implied-eval': 0,
     '@typescript-eslint/no-throw-literal': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterOverload: true, exceptAfterSingleLine: true },
+    ],
     'no-continue': 0,
     'no-console': 'error',
     'no-await-in-loop': 0,
