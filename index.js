@@ -39,7 +39,7 @@ module.exports = {
     'sort-keys': 0,
     'max-classes-per-file': 0,
     'no-underscore-dangle': 0,
-    'lines-between-class-members': ['error', 'always'],
+    'lines-between-class-members': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'array' }],
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-unused-expressions': 2,
