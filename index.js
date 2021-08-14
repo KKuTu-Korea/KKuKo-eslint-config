@@ -1,68 +1,27 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  extends: ['./base', 'airbnb-typescript'],
+  plugins: ['react', 'react-hooks'],
   parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'airbnb-typescript/base',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-  ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
-  rules: {
-    '@typescript-eslint/dot-notation': 0,
-    '@typescript-eslint/no-implied-eval': 0,
-    '@typescript-eslint/no-throw-literal': 0,
-    '@typescript-eslint/no-use-before-define': 0,
-    '@typescript-eslint/lines-between-class-members': [
-      'error',
-      'always',
-      { exceptAfterOverload: true, exceptAfterSingleLine: true },
-    ],
-    'no-continue': 0,
-    'no-console': 'error',
-    'no-await-in-loop': 0,
-    'class-methods-use-this': 0,
-    'import/named': 2,
-    'import/no-named-as-default': 0,
-    'import/prefer-default-export': 0,
-    'import/extensions': 0,
-    'no-param-reassign': ['error', { props: true }],
-    'sort-keys': 0,
-    'max-classes-per-file': 0,
-    'no-underscore-dangle': 0,
-    'lines-between-class-members': 'off',
-    '@typescript-eslint/array-type': ['error', { default: 'array' }],
-    '@typescript-eslint/no-namespace': 0,
-    '@typescript-eslint/no-unused-expressions': 2,
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'lf',
-        singleQuote: true,
-        trailingComma: 'all',
-      },
-    ],
-    'no-plusplus': 'off',
-  },
-  overrides: [
-    {
-      files: ['*.schema.ts'],
-      rules: {
-        'import/no-cycle': 0,
-      },
+    ecmaFeatures: {
+      jsx: true,
     },
-  ],
+  },
+  ignorePatterns: ['**/*.generated.*', 'graphql-types.ts'],
+  rules: {
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '^(query|mutation|fragment|_)$',
+      },
+    ],
+    'react-hooks/exhaustive-deps': [
+      'error',
+      { enableDangerousAutofixThisMayCauseInfiniteLoops: true },
+    ],
+    'react/jsx-uses-react': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+  },
 };
